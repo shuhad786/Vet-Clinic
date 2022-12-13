@@ -17,18 +17,33 @@ SELECT * from animals WHERE name != 'Gabumon';
 SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3
 
 BEGIN;
-
 DELETE FROM animals
 WHERE date_of_birth >= '01-01-2022';
-
 SAVEPOINT my_save;
-
 UPDATE animals
 SET weight_kg = weight_kg * -1;
-
 ROLLBACK TO SAVEPOINT my_save;
-
 UPDATE animals
 SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
-
 COMMIT;
+
+SELECT COUNT(*) FROM animals;
+
+SELECT COUNT(*) FROM animals
+WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animals;
+
+SELECT name FROM animals 
+WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals);
+
+SELECT species, 
+MIN(weight_kg) AS min_weight, 
+MAX(weight_kg) AS max_weight 
+FROM animals
+GROUP BY species;
+
+SELECT species, 
+AVG(escape_attempts)
+FROM animals
+GROUP BY species;
