@@ -15,3 +15,20 @@ SELECT * from animals WHERE neutered = true;
 SELECT * from animals WHERE name != 'Gabumon';
 
 SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3
+
+BEGIN;
+
+DELETE FROM animals
+WHERE date_of_birth >= '01-01-2022';
+
+SAVEPOINT my_save;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+
+ROLLBACK TO SAVEPOINT my_save;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
+
+COMMIT;
