@@ -17,6 +17,28 @@ SELECT * from animals WHERE name != 'Gabumon';
 SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3
 
 BEGIN;
+UPDATE animals 
+SET species = 'unspecified';
+SELECT * FROM animals
+
+BEGIN;
+UPDATE animals 
+SET species = 'unspecified';
+ROLLBACK;
+SELECT * FROM animals
+
+BEGIN;
+UPDATE animals 
+SET species = 'digimon' WHERE name LIKE '%mon';
+SELECT * FROM animals
+
+BEGIN;
+UPDATE animals 
+SET species = 'pokemon' WHERE species IS null;
+COMMIT;
+SELECT * FROM animals
+
+BEGIN;
 DELETE FROM animals
 WHERE date_of_birth >= '01-01-2022';
 SAVEPOINT my_save;
@@ -34,16 +56,13 @@ WHERE escape_attempts = 0;
 
 SELECT AVG(weight_kg) FROM animals;
 
-SELECT name FROM animals 
-WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals);
+SELECT neutered FROM animals 
+WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals)
+GROUP BY neutered;
 
-SELECT species, 
-MIN(weight_kg) AS min_weight, 
-MAX(weight_kg) AS max_weight 
-FROM animals
+SELECT species, MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight FROM animals
 GROUP BY species;
 
-SELECT species, 
-AVG(escape_attempts)
-FROM animals
+SELECT species, AVG(escape_attempts) FROM animals
+WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
