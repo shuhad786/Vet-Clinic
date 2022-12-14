@@ -17,6 +17,28 @@ SELECT * from animals WHERE name != 'Gabumon';
 SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3
 
 BEGIN;
+UPDATE animals 
+SET species = 'unspecified';
+SELECT * FROM animals
+
+BEGIN;
+UPDATE animals 
+SET species = 'unspecified';
+ROLLBACK;
+SELECT * FROM animals
+
+BEGIN;
+UPDATE animals 
+SET species = 'digimon' WHERE name LIKE '%mon';
+SELECT * FROM animals
+
+BEGIN;
+UPDATE animals 
+SET species = 'pokemon' WHERE species IS null;
+COMMIT;
+SELECT * FROM animals
+
+BEGIN;
 DELETE FROM animals
 WHERE date_of_birth >= '01-01-2022';
 SAVEPOINT my_save;

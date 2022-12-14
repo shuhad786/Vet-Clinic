@@ -21,28 +21,25 @@ INSERT INTO public.animals
 VALUES (5, 'Charmander', '08-02-2020', 0, false, -11);
 	
 INSERT INTO public.animals
-(
-  id, name, date_of_birth, escape_attempts, neutered, weight_kg)
+(id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (6, 'Plantmon', '2021-11-15', 2, true, -5.7);
 	
 INSERT INTO public.animals
-(
-  id, name, date_of_birth, escape_attempts, neutered, weight_kg)
+(id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (7, 'Squirtle', '02-04-1993', 3, false, -12.13);
 	
 INSERT INTO public.animals
-(
-  id, name, date_of_birth, escape_attempts, neutered, weight_kg)
+(id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (8, 'Angemon', '12-06-2005', 1, true, -45);
 	
 INSERT INTO public.animals
-(
-  id, name, date_of_birth, escape_attempts, neutered, weight_kg)
+(id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (9, 'Boarmon', '07-06-2005', 7, true, 20.4);
 	
 INSERT INTO public.animals
 (id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (10, 'Blossom', '1998-10-13', 3, true, 17);
 	
-INSERT INTO public.animalsid, name, date_of_birth, escape_attempts, neutered, weight_kg)
+INSERT INTO public.animals
+(id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (11, 'Ditto', '2022-05-14', 4, true, 22);
