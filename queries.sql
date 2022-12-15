@@ -47,3 +47,46 @@ SELECT species,
 AVG(escape_attempts)
 FROM animals
 GROUP BY species;
+
+SELECT a.name FROM animals as a
+INNER JOIN owners as o 
+ON o.id = a.owner_id 
+WHERE o.name = 'Melody Pond';
+
+SELECT a.name FROM animals AS a
+JOIN species AS s
+ON a.species_id = s.id
+WHERE s.name = 'Pokemon';
+
+SELECT a.name, o.name FROM animals AS a
+RIGHT JOIN owners AS o
+ON a.owner_id = o.id;
+
+SELECT COUNT(*) as pokemons FROM animals AS a
+JOIN species AS s
+ON a.species_id = s.id
+WHERE s.name = 'Pokemon';
+
+SELECT COUNT(*) as digimons FROM animals AS a
+JOIN species AS s
+ON a.species_id = s.id
+WHERE s.name = 'Digimon';
+
+SELECT a.name FROM animals AS a
+JOIN owners AS o
+ON a.owner_id = o.id
+JOIN species AS s
+ON a.species_id = s.id
+WHERE o.name = 'Jennifer Orwell' AND s.name = 'Digimon';
+
+SELECT a.name FROM animals AS a
+JOIN owners AS o
+ON a.owner_id = o.id
+WHERE o.name = 'Dean Winchester' AND a.escape_attempts = 0;
+
+SELECT o.name
+FROM owners AS o
+JOIN animals AS a on o.id = a.owner_id
+GROUP BY o.name
+ORDER BY COUNT(*) DESC
+LIMIT 1;
