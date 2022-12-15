@@ -62,7 +62,8 @@ ADD CONSTRAINT specials2 FOREIGN KEY (vets_id) REFERENCES vets(id);
 CREATE TABLE visits
 (
 	animals_id integer,
-	vets_id integer
+	vets_id integer,
+	date_of_visit date
 );
 
 ALTER TABLE visits 
