@@ -3,12 +3,12 @@ CREATE database vet_clinic
 
 CREATE TABLE animals
 (
-	Id integer primary key,
-	Name varchar(50),
-	Date_of_birth date,
-	Escape_attempts integer,
-	Neutered boolean,
-	Weight_kg real
+  id integer primary key,
+  name varchar(50),
+  date_of_birth date,
+  escape_attempts integer,
+  neutered boolean,
+  weight_kg real
 );
 
 ALTER TABLE animals  
